@@ -1,1 +1,1 @@
-# infomap
+# mapreco
