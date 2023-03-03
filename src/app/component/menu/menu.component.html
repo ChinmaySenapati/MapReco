@@ -1,0 +1,58 @@
+<aside id="sidebar_main">
+    <div class="sidebar_main_header"
+        style="background-image: none;height: 49px; text-align: center; margin-bottom: 10px;">
+        <div class="sidebar_logo">
+            <img class="logo_regular" src="assets/img/infomap-logo.png" />
+        </div>
+    </div>
+    <div class="menu_section">
+        <ul *ngIf="userRole == 'ADM'">
+            <li>
+                <a routerLink="/Users">
+                    <span class="menu_icon"><i class="material-icons">face</i></span>
+                    <span class="menu_title">Users</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Clients">
+                    <span class="menu_icon"><i class="material-icons">group</i></span>
+                    <span class="menu_title">Clients</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/DocumentTypes">
+                    <span class="menu_icon"><i class="material-icons">insert_drive_file</i></span>
+                    <span class="menu_title">Document Types</span>
+                </a>
+            </li>
+        </ul>
+        <ul *ngIf="userRole == 'AEX'">
+            <li>
+                <a routerLink="/Dashboard">
+                    <span class="menu_icon"><i class="material-icons">dashboard</i></span>
+                    <span class="menu_title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Archives">
+                    <span class="menu_icon"><i class="material-icons">archive</i></span>
+                    <span class="menu_title">Archives</span>
+                </a>
+            </li>
+        </ul>
+        <ul *ngIf="userRole == 'MGR'">
+                <li>
+                    <a routerLink="/Dashboard">
+                        <span class="menu_icon"><i class="material-icons">dashboard</i></span>
+                        <span class="menu_title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/Archives">
+                        <span class="menu_icon"><i class="material-icons">archive</i></span>
+                        <span class="menu_title">Archives</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+</aside>

@@ -1,0 +1,84 @@
+<div class="sidebar_main_open">
+  <app-header></app-header>
+  <app-menu></app-menu>
+  <div id="page_content">
+    <div id="page_content_inner">
+      <div class="uk-grid">
+        <div class="uk-width-medium-2-10 float-left">
+          <h3 class="heading_b uk-margin-bottom">Upload Archive</h3>
+        </div>
+        <div class="uk-width-medium-8-10 float-right" style="text-align:right;">
+          <a routerLink="/Archives" class="md-btn md-btn-small md-btn-wave-light md-btn-icon">
+            <i class="uk-icon-arrow-left"></i>
+            Back
+          </a>
+        </div>
+      </div>
+      <form [formGroup]="archiveForm" (ngSubmit)="onSubmit()" autoComplete="off">
+        <div class="md-card">
+          <div class="md-card-content large-padding">
+            <div id="form_validation" class="uk-form-stacked">
+              <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-medium-1-3">
+                  <div class="parsley-row">
+                    <label><strong>Client<span class="req">*</span></strong></label>
+                    <select #client (change)="getCategories(client.value)" class="md-input" formControlName="client"
+                      id="client" name="client">
+                      <option value="">Please Select</option>
+                      <option *ngFor="let client of clients" [value]="client.uuid">
+                        {{client.name}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="uk-width-medium-1-3">
+                  <div class="parsley-row">
+                    <label><strong>Category<span class="req">*</span></strong></label>
+                    <select #category (change)="getPartners(category.value)" class="md-input" id="catgeory"
+                      name="catgeory">
+                      <option value="">Please Select</option>
+                      <option *ngFor="let clientCategory of categories" [value]="clientCategory.uuid">
+                        {{clientCategory.name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="uk-width-medium-1-3">
+                  <div class="parsley-row">
+                    <label><strong>Partner<span class="req">*</span></strong></label>
+                    <select class="md-input" id="partner" name="partner" formControlName="partner">
+                      <option value="">Please Select</option>
+                      <option *ngFor="let partner of partners" [value]="partner.uuid">
+                        {{partner.name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="uk-width-medium-1-3">
+                  <div class="parsley-row">
+                    <label><strong>From Date<span class="req">*</span></strong></label>
+                    <input type="date" required class="md-input" id="fromDate" formControlName="fromDate" />
+                  </div>
+                </div>
+                <div class="uk-width-medium-1-3">
+                  <div class="parsley-row">
+                    <label><strong>To Date<span class="req">*</span></strong></label>
+                    <input type="date" required class="md-input" id="toDate" formControlName="toDate" />
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!isArchiveValid" class="uk-grid" style="text-align: center">
+                <div class="uk-width-1-1">
+                  <label style="color: red;"><strong>A reconciliation for the selected period already exists for the partner</strong></label>
+                </div>
+              </div>
+              <div class="uk-grid" style="text-align: center">
+                <div class="uk-width-1-1">
+                  <button type="submit" class="md-btn md-btn-primary">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

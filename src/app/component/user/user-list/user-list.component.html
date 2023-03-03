@@ -1,0 +1,60 @@
+<div class="sidebar_main_open">
+  <app-header></app-header>
+  <app-menu></app-menu>
+  <div id="page_content">
+    <div id="page_content_inner">
+      <div class="uk-grid">
+        <div class="uk-width-medium-2-10 float-left">
+          <h3 class="heading_b uk-margin-bottom">Users</h3>
+        </div>
+        <div class="uk-width-medium-8-10 float-right" style="text-align:right;">
+          <a routerLink="/User/Add" class="md-btn md-btn-primary md-btn-small md-btn-wave-light md-btn-icon">
+            <i class="uk-icon-plus"></i>
+            Add User
+          </a>
+        </div>
+        <div class="uk-width-medium-1-1">
+          <div class="md-card uk-margin-medium-bottom">
+            <div class="md-card-content">
+              <div class="uk-overflow-container">
+                <table class="uk-table uk-table-nowrap table_check">
+                  <thead>
+                    <tr>
+                      <th style="width:5%;font-weight:bold;text-align:center;">SNo</th>
+                      <th style="width:20%;font-weight:bold">Name</th>
+                      <th style="width:20%;font-weight:bold">Email</th>
+                      <th style="width:20%;font-weight:bold">Mobile</th>
+                      <th style="width:20%;font-weight:bold">Role</th>
+                      <th style="width:15%;font-weight:bold">&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let user of users let i=index">
+                      <td style="text-align:center;">{{i+1}}</td>
+                      <td>{{user.name}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.mobile}}</td>
+                      <td>{{user.role.name}}</td>
+                      <td style="text-align:right;">
+                        <a (click)="deleteUser(user.uuid)" style="margin-right: 10px;" data-uk-tooltip title="Delete">
+                          <i class="material-icons  md-color-red-600">&#xE872;</i></a>
+                        <a routerLink="/User/Edit/{{ user.uuid }}" style="margin-right: 10px;" data-uk-tooltip
+                          title="Edit">
+                          <i class="material-icons md-color-light-blue-500">&#xE150;</i></a>
+                        <a routerLink="/User/Details/{{ user.uuid }}" data-uk-tooltip title="Details"><i
+                            class="material-icons  md-color-grey-500">&#xE88E;</i></a>
+                      </td>
+                    </tr>
+                    <tr *ngIf="!users?.length">
+                      <td colspan="6" style="text-align:center;">No records found</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

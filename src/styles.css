@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/bower_components/weather-icons/css/weather-icons.min.css';
+@import 'assets/bower_components/uikit/css/uikit.almost-flat.min.css';
+@import 'assets/bower_components/metrics-graphics/dist/metricsgraphics.css';
+@import 'assets/bower_components/chartist/dist/chartist.min.css';
+
+/*CSS*/
+@import 'assets/css/style_switcher.min.css';
+@import 'assets/css/themes/themes_combined.min.css';
+@import 'assets/css/login_page.min.css';
+@import 'assets/css/main.css';
+
+/*Icons*/
+@import 'assets/icons/flags/flags.min.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,51 @@
+<div class="sidebar_main_open">
+    <app-header></app-header>
+    <app-menu></app-menu>
+    <div id="page_content">
+      <div id="page_content_inner">
+        <div class="uk-grid">
+          <div class="uk-width-medium-2-10 float-left">
+            <h3 class="heading_b uk-margin-bottom">Document Types</h3>
+          </div>
+          <div class="uk-width-medium-8-10 float-right" style="text-align:right;">
+            <a routerLink="/DocumentType/Add" class="md-btn md-btn-primary md-btn-small md-btn-wave-light md-btn-icon">
+              <i class="uk-icon-plus"></i>
+              Add Document Type
+            </a>
+          </div>
+          <div class="uk-width-medium-1-1">
+            <div class="md-card uk-margin-medium-bottom">
+              <div class="md-card-content">
+                <div class="uk-overflow-container">
+                  <table class="uk-table uk-table-nowrap table_check">
+                    <thead>
+                      <tr>
+                        <th style="width:5%;font-weight:bold;text-align:center;">SNo</th>
+                        <th style="width:80%;font-weight:bold">Document Type</th>
+                        <th style="width:15%;font-weight:bold">&nbsp;</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let documentType of documentTypes let i=index">
+                        <td style="text-align:center;">{{i+1}}</td>
+                        <td>{{documentType.name}}</td>
+                        <td style="text-align:right;">
+                          <a (click)="deleteDocumentType(documentType.uuid)" style="margin-right: 10px;" data-uk-tooltip
+                            title="Delete"><i class="material-icons md-color-red-600">&#xE872;</i></a>
+                          <a routerLink="/DocumentType/Edit/{{ documentType.uuid }}" style="margin-right: 10px;" data-uk-tooltip
+                            title="Edit"><i class="material-icons md-color-light-blue-500">&#xE150;</i></a>
+                        </td>
+                      </tr>
+                      <tr *ngIf="!documentTypes?.length">
+                          <td colspan="3" style="text-align:center;">No records found</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,61 @@
+a { cursor: pointer; }
+
+div.absolute 
+  {
+    float: right; 
+    margin: 0px;
+    border: 0px
+  }
+
+div.uk-pagination.uk-margin-medium-top.uk-margin-medium-bottom
+  {
+    margin: 0px;
+    box-shadow: none;
+  }
+       
+div.md-card 
+  {
+    background: #fff;
+    position: relative;
+    border: none;
+  }
+  
+div.md-card-content
+  {
+    margin: 0px;
+    padding:0px;
+  }
+
+div.uk-margin-medium-bottom 
+  {
+    /* margin-bottom: 32px !important; */
+    margin-bottom: 0px important;
+  }
+
+table 
+  {
+    table-layout:fixed;
+
+  }
+    
+table td.overflow 
+  {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
+/* table tbody td.center 
+  {
+    text-align:right;
+  }
+
+table thead th.center 
+  {
+  text-align:right;
+  }
+
+  table tr {
+    width: 100%;
+  } */
+  

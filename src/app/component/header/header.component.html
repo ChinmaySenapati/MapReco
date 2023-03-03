@@ -1,0 +1,27 @@
+<header id="header_main">
+    <div class="header_main_content">
+        <nav class="uk-navbar">
+            <div class="uk-navbar-flip">
+                <ul class="uk-navbar-nav user_actions">
+                    <!-- <li style="margin-top: 15px; color: #ffffff;">Welcome {{ userName }}</li> -->
+                    <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
+                        <a class="user_action_image"><img class="md-user-image" src="assets/img/avatars/user.png" alt="" /></a>
+                        <div class="uk-dropdown uk-dropdown-small">
+                            <ul class="uk-nav js-uk-prevent">
+                                <li><a>Change Password</a></li>
+                                <li><a routerLink="/Login">Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="header_main_content">
+                <div class="uk-navbar-flip2">
+                <ul class="uk-navbar-nav user_actions">
+                    <li class="left" style="margin-top: 15px; color: #ffffff;">Welcome {{ userName }}</li>
+                </ul>
+            </div>
+           </div>
+        </nav>
+    </div>
+</header>

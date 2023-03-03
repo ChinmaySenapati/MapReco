@@ -1,0 +1,75 @@
+<div class="sidebar_main_open">
+  <app-header></app-header>
+  <app-menu></app-menu>
+  <div id="page_content">
+    <div id="page_content_inner">
+      <div class="uk-grid">
+        <div class="uk-width-medium-2-10 float-left">
+          <h3 class="heading_b uk-margin-bottom">Partners</h3>
+        </div>
+        <div *ngIf="client" class="uk-width-medium-8-10 float-right" style="text-align:right;">
+          <a routerLink="/Client/Partner/Add/{{client.uuid}}"
+            class="md-btn md-btn-primary md-btn-small md-btn-wave-light md-btn-icon">
+            Add Partner
+          </a>
+          <a routerLink="/Client/Details/{{client.uuid}}" class="md-btn md-btn-small md-btn-wave-light md-btn-icon">
+            <i class="uk-icon-arrow-left"></i>
+            Back
+          </a>
+        </div>
+      </div>
+      <div *ngIf="client" class="md-card" style="margin-top:0px">
+        <div class="md-card-content large-padding">
+          <div id="form_validation" class="uk-form-stacked">
+            <div class="uk-grid" data-uk-grid-margin>
+              <div class="uk-width-medium-1-2">
+                <label><strong>Client Name</strong></label><br>
+                <p style="margin-top: 2px;">{{client.name}}</p>
+              </div>
+              <div class="uk-width-medium-1-2">
+                <label><strong>Code</strong></label><br>
+                <p style="margin-top: 2px;">{{client.code}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="partners" class="uk-width-medium-1-1" style="margin-top: 25px;">
+        <div class="md-card uk-margin-medium-bottom">
+          <div class="md-card-content">
+            <div class="uk-overflow-container">
+              <table class="uk-table uk-table-nowrap table_check">
+                <thead>
+                  <tr>
+                    <th style="width:5%;font-weight:bold;text-align:center;">SNo</th>
+                    <th style="width:30%;font-weight:bold">Partner Name</th>
+                    <th style="width:20%;font-weight:bold">Code</th>
+                    <th style="width:30%;font-weight:bold">Catgeory Name</th>
+                    <th style="width:15%;font-weight:bold">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let partner of partners let i=index">
+                    <td style="text-align:center;">{{i+1}}</td>
+                    <td>{{partner.name}}</td>
+                    <td>{{partner.code}}</td>
+                    <td>{{partner.clientCategory.name}}</td>
+                    <td style="text-align:right;">
+                      <a (click)="deletePartner(partner.uuid)" style="margin-right: 10px;" data-uk-tooltip
+                        title="Delete"><i class="material-icons md-color-red-600">&#xE872;</i></a>
+                      <a routerLink="/Client/Partner/Edit/{{client.uuid}}/{{partner.uuid}}" style="margin-right: 10px;"
+                        data-uk-tooltip title="Edit"><i class="material-icons md-color-light-blue-500">&#xE150;</i></a>
+                    </td>
+                  </tr>
+                  <tr *ngIf="!partners?.length">
+                    <td colspan="5" style="text-align:center;">No records found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="sidebar_main_open">
+  <app-header></app-header>
+  <app-menu></app-menu>
+  <div id="page_content">
+    <div id="page_content_inner">
+      <div class="uk-grid">
+        <div class="uk-width-medium-2-10 float-left">
+          <h3 class="heading_b uk-margin-bottom">Archives</h3>
+        </div>
+        <div class="uk-width-medium-8-10 float-right" style="text-align:right;">
+          <a routerLink="/Archive/Add" class="md-btn md-btn-primary md-btn-small md-btn-wave-light md-btn-icon">
+            <i class="uk-icon-plus"></i>
+            Upload Archive
+          </a>
+        </div>
+        <div class="uk-width-medium-1-1">
+          <div class="md-card uk-margin-medium-bottom">
+            <div class="md-card-content">
+              <div class="uk-overflow-container">
+                <table class="uk-table uk-table-nowrap table_check scrollmenu" style="border:1px">
+                  <thead>
+                    <tr>
+                      <th style="width:5%;font-weight:bold;text-align:center;">SNo</th>
+                      <!-- <th style="width:15%;font-weight:bold">Client</th>
+                      <th style="width:14%;font-weight:bold">Category</th>
+                      <th style="width:15%;font-weight:bold">Partner</th>
+                      <th style="width:12%;font-weight:bold">From Date</th>
+                      <th style="width:12%;font-weight:bold">To Date</th>
+                      <th style="width:12%;font-weight:bold">Status</th> 
+                      <th style="width:15%;font-weight:bold">&nbsp;</th> -->
+                      <th style="width:15%;font-weight:bold">Client</th>
+                      <th style="width:12%;font-weight:bold">Category</th>
+                      <th style="width:14%;font-weight:bold">Partner</th>
+                      <th style="width:15%;font-weight:bold">From Date</th>
+                      <th style="width:15%;font-weight:bold">To Date</th>
+                      <th style="width:15%;font-weight:bold">Status</th>                    
+                      <th style="font-weight:bold">Action</th> 
+                      <th style="width:2%;font-weight:bold">&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                    <tr *ngFor="let reconciliation of reconciliations let i=index">
+                      <td style="text-align:center;">{{i+1}}</td>
+                      <td data-uk-tooltip class="overflow" title={{reconciliation.client.name}}>{{reconciliation.client.name}}</td>
+                      <td data-uk-tooltip class="overflow" title={{reconciliation.partner.clientCategory.name}}>{{reconciliation.partner.clientCategory.name}}</td>
+                      <td data-uk-tooltip class="overflow" title={{reconciliation.partner.name}} >{{reconciliation.partner.name}}</td>
+                      <td>{{reconciliation.fromDate | date: 'dd MMM yyyy'}}</td>
+                      <td>{{reconciliation.toDate | date: 'dd MMM yyyy'}}</td>
+                      <td>{{reconciliation.status.name}}</td>
+                      <td>
+                        <a  style="text-align:center;" routerLink="/Archive/Edit/{{ reconciliation.uuid }}" style="margin-right: 10px;" data-uk-tooltip
+                          title="Edit"><i class="material-icons md-color-light-blue-500">&#xE150;</i></a>
+                        <a  style="text-align:center;" routerLink="/Archive/Details/{{ reconciliation.uuid }}" data-uk-tooltip title="Details"><i
+                          class="material-icons md-color-grey-500">&#xE88E;</i></a> &nbsp;
+                        <a *ngIf="reconciliation.status.code != 'APRV'" (click)="deleteArchive(reconciliation.uuid)"
+                          data-uk-tooltip title="Delete"><i class="material-icons md-color-red-600">&#xE872;</i></a>                      
+                      </td>
+                    </tr>
+                    <tr *ngIf="!reconciliations?.length">
+                      <td colspan="8" style="text-align:center;">No records found</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="uk-width-medium-1-1">
+            <div class="md-card uk-margin-medium-bottom">
+              <div class="md-card-content">
+                <div class="uk-overflow-container">
+                  <div class="absolute">
+                    <ul class="uk-pagination uk-margin-medium-top uk-margin-medium-bottom">
+                     <li class="uk-disabled"><span><i class="uk-icon-angle-double-left"></i></span></li>
+                      <li class="uk-active"><span><a>1</a></span></li>
+                      <li><a>2</a></li>
+                      <li><a>3</a></li>
+                      <li><span>&hellip;</span></li>
+                      <li><a>6</a></li>
+                      <li><a><i class="uk-icon-angle-double-right"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
